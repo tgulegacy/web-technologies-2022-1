@@ -1,8 +1,9 @@
 function pickPropArray(mas, property)
 {
-    let result = new Array(mas.length + 1)
+    let result = []
     for (let i = 0; i < mas.length; i++) {
-        result.push(mas[i][property])
+        if (mas[i][property])
+            result.push(mas[i][property])
     }
     return result
 }
