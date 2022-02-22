@@ -20,7 +20,7 @@ body {
     url('assets/fonts/HelveticaNeueCyr-Black.eot?#iefix') format('embedded-opentype'),
     url('assets/fonts/HelveticaNeueCyr-Black.woff') format('woff'),
     url('assets/fonts/HelveticaNeueCyr-Black.ttf') format('truetype');
-    font-weight: normal;
+    font-weight: 900;
     font-style: normal;
 }
 
@@ -31,7 +31,7 @@ body {
     url('assets/fonts/HelveticaNeueCyr-BlackItalic.eot?#iefix') format('embedded-opentype'),
     url('assets/fonts/HelveticaNeueCyr-BlackItalic.woff') format('woff'),
     url('assets/fonts/HelveticaNeueCyr-BlackItalic.ttf') format('truetype');
-    font-weight: Bold;
+    font-weight: 900;
     font-style: italic;
 }
 
@@ -64,7 +64,7 @@ body {
     url('assets/fonts/HelveticaNeueCyr-Heavy.eot?#iefix') format('embedded-opentype'),
     url('assets/fonts/HelveticaNeueCyr-Heavy.woff') format('woff'),
     url('assets/fonts/HelveticaNeueCyr-Heavy.ttf') format('truetype');
-    font-weight: normal;
+    font-weight: 1000;
     font-style: normal;
 }
 
@@ -75,7 +75,7 @@ body {
     url('assets/fonts/HelveticaNeueCyr-HeavyItalic.eot?#iefix') format('embedded-opentype'),
     url('assets/fonts/HelveticaNeueCyr-HeavyItalic.woff') format('woff'),
     url('assets/fonts/HelveticaNeueCyr-HeavyItalic.ttf') format('truetype');
-    font-weight: normal;
+    font-weight: 1000;
     font-style: italic;
 }
 
@@ -97,7 +97,7 @@ body {
     url('assets/fonts/HelveticaNeueCyr-Light.eot?#iefix') format('embedded-opentype'),
     url('assets/fonts/HelveticaNeueCyr-Light.woff') format('woff'),
     url('assets/fonts/HelveticaNeueCyr-Light.ttf') format('truetype');
-    font-weight: normal;
+    font-weight: 600;
     font-style: normal;
 }
 
@@ -108,7 +108,7 @@ body {
     url('assets/fonts/HelveticaNeueCyr-LightItalic.eot?#iefix') format('embedded-opentype'),
     url('assets/fonts/HelveticaNeueCyr-LightItalic.woff') format('woff'),
     url('assets/fonts/HelveticaNeueCyr-LightItalic.ttf') format('truetype');
-    font-weight: normal;
+    font-weight: 600;
     font-style: italic;
 }
 
@@ -119,7 +119,7 @@ body {
     url('assets/fonts/HelveticaNeueCyr-Medium.eot?#iefix') format('embedded-opentype'),
     url('assets/fonts/HelveticaNeueCyr-Medium.woff') format('woff'),
     url('assets/fonts/HelveticaNeueCyr-Medium.ttf') format('truetype');
-    font-weight: normal;
+    font-weight: 700;
     font-style: normal;
 }
 
@@ -130,7 +130,7 @@ body {
     url('assets/fonts/HelveticaNeueCyr-MediumItalic.eot?#iefix') format('embedded-opentype'),
     url('assets/fonts/HelveticaNeueCyr-MediumItalic.woff') format('woff'),
     url('assets/fonts/HelveticaNeueCyr-MediumItalic.ttf') format('truetype');
-    font-weight: normal;
+    font-weight: 700;
     font-style: italic;
 }
 
@@ -141,7 +141,7 @@ body {
     url('assets/fonts/HelveticaNeueCyr-Thin.eot?#iefix') format('embedded-opentype'),
     url('assets/fonts/HelveticaNeueCyr-Thin.woff') format('woff'),
     url('assets/fonts/HelveticaNeueCyr-Thin.ttf') format('truetype');
-    font-weight: normal;
+    font-weight: 800;
     font-style: normal;
 }
 
@@ -152,7 +152,7 @@ body {
     url('assets/fonts/HelveticaNeueCyr-ThinItalic.eot?#iefix') format('embedded-opentype'),
     url('assets/fonts/HelveticaNeueCyr-ThinItalic.woff') format('woff'),
     url('assets/fonts/HelveticaNeueCyr-ThinItalic.ttf') format('truetype');
-    font-weight: normal;
+    font-weight: 800;
     font-style: italic;
 }
 
@@ -163,7 +163,7 @@ body {
     url('assets/fonts/HelveticaNeueCyr-UltraLight.eot?#iefix') format('embedded-opentype'),
     url('assets/fonts/HelveticaNeueCyr-UltraLight.woff') format('woff'),
     url('assets/fonts/HelveticaNeueCyr-UltraLight.ttf') format('truetype');
-    font-weight: normal;
+    font-weight: 500;
     font-style: normal;
 }
 
@@ -174,7 +174,7 @@ body {
     url('assets/fonts/HelveticaNeueCyr-UltraLightItalic.eot?#iefix') format('embedded-opentype'),
     url('assets/fonts/HelveticaNeueCyr-UltraLightItalic.woff') format('woff'),
     url('assets/fonts/HelveticaNeueCyr-UltraLightItalic.ttf') format('truetype');
-    font-weight: normal;
+    font-weight: 500;
     font-style: italic;
 }
 
