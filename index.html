@@ -9,7 +9,76 @@
     <link href="style.css" rel="stylesheet">
 </head>
 <body>
-<script src="index.js"></script>
-hello world from Ivan
+    <div id="list-items">
+        <div class="list-item list-item_open" data-parent>
+            <div class="list-item__inner">
+                <img class="list-item__arrow"
+                     src="./assets/img/chevron-down.png"
+                     alt="" data-open>
+
+                <img class="list-item__folder"
+                     src="./assets/img/folder.png"
+                     alt="">
+
+                <span class="list-item__text">
+                    Каталог товаров
+                </span>
+            </div>
+            
+            <div class="list-item__items">
+                <div class="list-item list-item_open" data-parent>
+                    <div class="list-item__inner">
+                        <img class="list-item__arrow"
+                             src="./assets/img/chevron-down.png"
+                             alt="" data-open>
+
+                        <img class="list-item__folder"
+                             src="./assets/img/folder.png"
+                             alt="">
+
+                        <span class="list-item__text">
+                            Мойки
+                        </span>
+                    </div>
+
+                    <div class="list-item__items">
+                        <div class="list-item">
+                            <div class="list-item__inner">
+                                <img class="list-item__folder"
+                                     src="./assets/img/folder.png"
+                                     alt="">
+
+                                <span class="list-item__text">
+                                    Мойки
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="list-item" data-parent>
+                    <div class="list-item__inner">
+                        <img class="list-item__arrow"
+                             src="./assets/img/chevron-down.png"
+                             alt="" data-open>
+
+                        <img class="list-item__folder"
+                             src="./assets/img/folder.png"
+                             alt="">
+
+                        <span class="list-item__text">
+                            Фильтры
+                        </span>
+                    </div>
+
+                    <div class="list-item__items">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<script src="index.js" type="module"></script>
 </body>
 </html>
