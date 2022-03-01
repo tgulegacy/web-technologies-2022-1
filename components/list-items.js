@@ -27,26 +27,27 @@ export default class ListItems {
     })
     
     return `
-        <div class="list-item__inner">
-            <img class="list-item__arrow"
-                 src="./assets/img/chevron-down.png"
-                 alt="" data-open>
-
-            <img class="list-item__folder"
-                 src="./assets/img/folder.png"
-                 alt="">
-
-            <span class="list-item__text">
-                ${data.name}
-            </span>
-        </div>
-
-        <div class="list-item__items">
             <div class="list-item list-item_open" data-parent>
-                ${result}
-            </div>
-        </div>` 
-
+              <div class="list-item__inner">
+                          <img class="list-item__arrow"
+                               src="./assets/img/chevron-down.png"
+                               alt="" data-open>
+              
+                          <img class="list-item__folder"
+                               src="./assets/img/folder.png"
+                               alt="">
+              
+                          <span class="list-item__text">
+                              ${data.name}
+                          </span>
+                      </div>
+              
+                      <div class="list-item__items">
+                          <div class="list-item">
+                              ${result}
+                          </div>
+                      </div> 
+            </div>`
   }
   
   renderChildren(data) {
