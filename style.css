@@ -1,4 +1,4 @@
-@import "assets/style/fonts.css";
+@import "assets/style/index.css";
 
 body {
     margin: 0;
@@ -6,4 +6,5 @@ body {
 
 html {
     font-family: 'HelveticaNeueCyr', sans-serif;
+    font-size: 16px;
 }
