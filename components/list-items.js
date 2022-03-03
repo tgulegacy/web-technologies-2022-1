@@ -2,6 +2,7 @@ export default class ListItems {
 	constructor(el, data) {
 		this.el = el;
 		this.data = data;
+		this.render();
 		this.init();
 	}
 
@@ -18,10 +19,10 @@ export default class ListItems {
 	}
 
 	render() {
-		this.el.insertAdjacentElement('beforeend', this.renderParent(this.data));
+		this.el.insertAdjacentHTML('beforeend', this.renderParent(this.data));
 	}
 
-	renderParent(data) {
+	renderParent() {
 		//проверку на hasChildren
 
 		//render

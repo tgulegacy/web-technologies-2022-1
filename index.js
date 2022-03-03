@@ -74,6 +74,4 @@ function init() {
 	}
 
 	const items = new ListItems(document.getElementById('list-items'), data);
-
-	items.render();
 }
