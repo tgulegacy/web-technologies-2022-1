@@ -1,21 +1,9 @@
-@import url('/assets/style/fonts.css');
+@import "assets/style/index.css";
 
 body {
     margin: 0;
 }
 
-@font-face {
-    font-family: 'HelveticaNeueCyr';
-    src: url('assets/fonts/HelveticaNeueCyr-Roman.eot');
-    src: local('HelveticaNeueCyr-Roman'),
-    url('assets/fonts/HelveticaNeueCyr-Roman.eot?#iefix') format('embedded-opentype'),
-    url('assets/fonts/HelveticaNeueCyr-Roman.woff') format('woff'),
-    url('assets/fonts/HelveticaNeueCyr-Roman.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
-}
-
 html {
     font-family: 'HelveticaNeueCyr', sans-serif;
 }
-
