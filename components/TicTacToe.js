@@ -120,13 +120,19 @@ export const TicTacToe = {
     this.initListeners()
     this.onMove(this.isXTurn)
       this.onMove(this.isXTurn)
-    
   },
 
   /**
    * Сброс данных и очищение дом дерева
    */
   restartGame() {
+    this.setBlockValue(null,true)
+    this.setBlockDom(null,true)
+    this.isGameEnd = false
+    this.isXTurn = true
+    const moveEl = document.getElementById('move-value')
+          moveEl.innerText = 'X'
+    
   },
   
   /**!
@@ -159,11 +165,17 @@ export const TicTacToe = {
    */
   setBlockValue(target, clear) {
     
-    const [row, col] = this.getBlockPosition(target)
+    
     if (clear){
-      this.matrix[row - 1][col - 1]=null
+      this.matrix= [
+        [null, null, null],
+        [null, null, null],
+        [null, null, null],
+      ]
+      console.log('aa')
     } 
     else{
+      const [row, col] = this.getBlockPosition(target)
       this.matrix[row - 1][col - 1]=this.getCurrentTurnValue()
     }
     
@@ -177,11 +189,14 @@ export const TicTacToe = {
    * @param {boolean?} clear - если true - отчистить target
    */
   setBlockDom(target, clear) {
-    const [row, col] = this.getBlockPosition(target)
+    
     if (clear){
-      target.innerText=null
+      console.log('aa')
+      this.boxes.forEach(box => {
+            box.innerText=''})
     }
     else{
+      const [row, col] = this.getBlockPosition(target)
       target.innerText=this.getCurrentTurnValue()
     }
     
