@@ -48,12 +48,15 @@ export const TicTacToe = {
    */
   initListeners() {
     this.boxes.forEach(box => {
+      
       box.addEventListener('click', event => {
         // проверка не закончилась ли игра и не пустой ли блок
+
         if (
           this.isGameEnd || 
           !this.isBlockEmpty(event.target)
         ) {
+          
           return
         }
 
@@ -74,7 +77,7 @@ export const TicTacToe = {
           this.setGameEndStatus()
 
           setTimeout(() => {
-            alert('Конец игры')
+            alert('Ничья')
           })
           return
         }
@@ -97,50 +100,63 @@ export const TicTacToe = {
     })
   },
 
-  /**
+  /**!
    * Проверка на наличие пустых блоков
    * @returns {boolean} - true если есть пустые блоки, false - если нет
    */
   checkHasEmptyBlocks() {
+    for (let i =0; i<this.matrix.length; i++)
+      for (let j=0; j<this.matrix[i].length;j++)
+        if (this.matrix[i][j]===null)
+        {
+          return true
+        }
   },
 
-  /**
+  /**!
    * Инициализация слушателя клика и вызов колбэка текущего хода
    */
   startGame() {
     this.initListeners()
     this.onMove(this.isXTurn)
+      this.onMove(this.isXTurn)
   },
 
   /**
    * Сброс данных и очищение дом дерева
    */
   restartGame() {
+    this.setBlockValue(null,true)
+    this.setBlockDom(null,true)
+    this.isGameEnd = false
+    this.isXTurn = true
+    const moveEl = document.getElementById('move-value')
+          moveEl.innerText = 'X'
+    
   },
   
-  /**
+  /**!
    * Проверка пустой ли блок
    * @param {HTMLDivElement} target - ячейка в дом дереве
    * @returns {boolean} - true если блок пустой
    */
   isBlockEmpty(target) {
     const [row, col] = this.getBlockPosition(target)
-    
+    console.log(!this.matrix[row - 1][col - 1])
     return !this.matrix[row - 1][col - 1]
   },
 
-  /**
+  /**!
    * Получение позиции блока из dataset
    * @param {HTMLDivElement} target - ячейка в дом дереве
    * @returns {array} - массив со строкой и колонкой target вида [row, col]
    */
   getBlockPosition(target) {
     const {row, col} = target.dataset
-    
     return [row, col]
   },
   
-  /**
+  /**!
    * Изменение значения элемента в матрице
    * Определяет значение [row, col] ячейки, после чего устанавливает
    * значение в матрице для соответствующего поля
@@ -148,6 +164,21 @@ export const TicTacToe = {
    * @param {boolean?} clear - если true - отчистить ячейку в матрице
    */
   setBlockValue(target, clear) {
+    
+    
+    if (clear){
+      this.matrix= [
+        [null, null, null],
+        [null, null, null],
+        [null, null, null],
+      ]
+      console.log('aa')
+    } 
+    else{
+      const [row, col] = this.getBlockPosition(target)
+      this.matrix[row - 1][col - 1]=this.getCurrentTurnValue()
+    }
+    
   },
 
   /**
@@ -158,6 +189,19 @@ export const TicTacToe = {
    * @param {boolean?} clear - если true - отчистить target
    */
   setBlockDom(target, clear) {
+    
+    if (clear){
+      console.log('aa')
+      this.boxes.forEach(box => {
+            box.innerText=''})
+    }
+    else{
+      const [row, col] = this.getBlockPosition(target)
+      target.innerText=this.getCurrentTurnValue()
+    }
+    
+    
+    
   },
 
   /**
@@ -165,15 +209,23 @@ export const TicTacToe = {
    * @returns {string} Текущий ход 'X' или 'O'
    */
   getCurrentTurnValue() {
+    if (this.isXTurn){return 'X'}
+    else{return 'O'}
   },
 
   /**
    * Изменение текущего хода в данных
    */
   changeTurnValue() {
+    if (this.isXTurn){
+      this.isXTurn=false
+    }
+    else{
+      this.isXTurn=true
+    }
   },
 
-  /**
+  /**!
    * Проверка победных комбинаций
    * @returns {boolean} - true если кто-то победил
    */
@@ -197,5 +249,6 @@ export const TicTacToe = {
    * Установить статус об окончании игры
    */
   setGameEndStatus() {
+    this.isGameEnd=true
   }
 }
