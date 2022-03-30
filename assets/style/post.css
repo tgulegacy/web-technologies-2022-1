@@ -1,0 +1,30 @@
+.post {
+    padding: 10px;
+    border-style: ridge;
+    border-color: darkgray;
+    border-radius: 9px;
+    width: 60%;
+    margin: auto;
+    margin-top: 10px;
+}
+.comment__name{text-align: center;}
+.comment__body{text-align: center;}
+.comment__email{color: brown;text-align: center;}
+.post-card {display: flex;flex-direction: column;}
+.post-card__title {margin-top: 3px;text-align: center;}
+.post-card__body {margin-bottom: 7px;}
+.comment-items {
+    display: grid;
+    margin-top: 15px;
+    height: 500px;
+}
+.comment {
+    display: grid;
+    background-color: lavender;
+    padding: 5px;
+    margin-bottom: 10px;
+    border-style: ridge;
+    border-width:2px ;
+    border-color: darkgray;
+    border-radius: 9px;
+}
