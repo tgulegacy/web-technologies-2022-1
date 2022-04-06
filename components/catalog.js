@@ -1,13 +1,11 @@
 export default class Catalog {
     constructor(el) {
-        this.el = el
         this.itemsEl = el.querySelector('[data-catalog-items]')
         this.paginationEl = el.querySelector('[data-catalog-pagination]')
         this.page = this.getPage()
-        this.limit = 12
+        this.limit = 10
         this.count = null
         this.pageCount = null
-
         this.getItems()
         this.initListeners()
     }
@@ -36,7 +34,6 @@ export default class Catalog {
 
     getPage() {
         const url = new URL(window.location.href)
-
         return +url.searchParams.get('page') || 1
     }
 
@@ -44,35 +41,43 @@ export default class Catalog {
         this.pageCount = Math.floor(this.count / this.limit)
     }
 
-    getItems() {
-        const url = `https://jsonplaceholder.typicode.com/posts?_limit=${this.limit}&_page=${this.page}`
+    async getItems() {
+        const url = `https://jsonplaceholder.typicode.com/posts?_limit=${this.limit}&_page=${this.page}`;
+        try {
+            const response = await fetch(url);
 
-        fetch(url)
-        .then(res => {
-            this.count = res.headers.get('x-total-count')
-            this.getPageCount()
-            return res.json()
-        })
-        .then(data => {
-            this.renderItems(data)
-            this.renderPagination()
-        })
+            if (response.ok) {
+                this.count = response.headers.get('x-total-count')
+                this.getPageCount()
+                const json = await response.json();
+                if (json) {
+                    this.renderItems(json)
+                    this.renderPagination()
+                }
+            } else {
+                throw new Error('Ошибка запроса')
+            }
+
+        } catch(exception) {
+            throw new Error(exception)
+        }
     }
 
     renderItems(items) {
         let html = ''
 
         items.forEach(item => {
+            let body = item.body;
+            let str = this.spliceString(body)
             html += `
             <div class="post-item">
                 <h3 class="post-item__title">
                     ${item.title}
                 </h3>
-
+                
                 <div class="post-item__body">
-                    ${item.body}
+                    ${str}
                 </div>
-
                 <a class="post-item__link" href="/post.html?id=${item.id}">
                     Открыть
                 </a>
@@ -83,19 +88,25 @@ export default class Catalog {
         this.itemsEl.innerHTML = html
     }
 
+    spliceString(body) {
+        let str = body.slice(0, 50);
+        let strSplit = str.split(' ');
+        strSplit.splice(strSplit.length - 1,1);
+        str = strSplit.join(' ') + '...';
+        return str
+    }
+
     renderPagination() {
         let html = ''
 
-        for (let i = 0; i < this.pageCount; i++) {
-            const activeClass = this.page === i + 1 ? 'post-pagination-item_active' : ''
-
+        for (let i = 1; i <= this.pageCount; i++) {
+            const activeClass = this.page === i  ? 'post-pagination-item_active' : '';
             html += `
-            <button class="post-pagination-item ${activeClass}" data-pagination-item="${i + 1}">
-                ${i + 1}
+            <button class="post-pagination-item ${activeClass}" data-pagination-item="${i}">
+                ${i}
             </button>
             `
         }
-
         this.paginationEl.innerHTML = html
     }
 }
