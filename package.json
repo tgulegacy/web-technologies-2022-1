@@ -1,6 +1,0 @@
-{
-  "dependencies": {
-    "http-server": "^14.1.0",
-    "i": "^0.3.7"
-  }
-}
