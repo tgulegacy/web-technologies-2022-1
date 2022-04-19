@@ -5,16 +5,22 @@ export default class ListItems {
   }
 
   init() {
+    if (!this.el) {
+      return
+    }
     const parents = this.el.querySelectorAll('[data-parent]')
-    
+
     parents.forEach(parent => {
       const open = parent.querySelector('[data-open]')
-      
+
       open.addEventListener('click', () => this.toggleItems(parent) )
     })
   }
-  
+
   render() {
+    if (!this.el) {
+      return
+    }
     this.el.insertAdjacentHTML('beforeend', this.renderParent(this.data))
   }
 
@@ -57,7 +63,7 @@ export default class ListItems {
     </div>
     `
   }
-  
+
   toggleItems(parent) {
     parent.classList.toggle('list-item_open')
   }

@@ -1,4 +1,34 @@
 @import "fonts.css";
 @import "list-items.css";
-@import "posts.css";
-@import "post.css";
+@import "form.css";
+@import "nav.css";
+@import "todo.css";
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+}
+
+.reg-form {
+    display: flex;
+    justify-content: center;
+    margin-top: 200px;
+}
+
+.main {
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    height: 100%;
+}
+
+.user-info {
+    padding: 16px;
+}
+
+.reg-form {
+}
+

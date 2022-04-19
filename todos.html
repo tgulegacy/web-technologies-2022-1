@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Todos</title>
+    <link href="style.css" rel="stylesheet">
+</head>
+<body>
+<header class="header">
+    <nav class="nav">
+        <a href="/auth.html">auth</a>
+        <a href="/reg.html">reg</a>
+        <a href="/todos.html">todos</a>
+        <a href="/auth.html">logout</a>
+    </nav>
+</header>
+
+<main class="main">
+    <div class="user-info" data-user-info>
+        <div data-user-email>
+        </div>
+
+        <div data-user-name>
+        </div>
+
+        <div data-user-age>
+        </div>
+    </div>
+
+    <div class="todos" id="todo-list">
+        <div class="addTodo-form">
+            <form id="addTodo" class="form">
+                <label class="text-field" data-input>
+                    <input class="text-field__input" type="text" name="description"
+                           placeholder="введите дело" autocomplete="off">
+                    <span class="text-field__error"></span>
+                </label>
+
+                <button id="add-todo" class="button" type="submit">
+                    Создать
+                </button>
+            </form>
+        </div>
+
+        <div class="user-todos" data-user-todos>
+
+        </div>
+    </div>
+</main>
+
+<script src="todos.js" type="module" defer></script>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Авториация</title>
+    <link href="style.css" rel="stylesheet">
+</head>
+<body>
+
+<header class="header">
+    <nav class="nav">
+        <a href="/auth.html">auth</a>
+        <a href="/reg.html">reg</a>
+        <a href="/todos.html">todos</a>
+    </nav>
+</header>
+
+<main class="main">
+    <div class="user-info" data-user-info>
+        <div data-user-email>
+        </div>
+
+        <div data-user-name>
+        </div>
+
+        <div data-user-age>
+        </div>
+    </div>
+
+    <div class="reg-form">
+        <form id="auth" class="form">
+            <label class="text-field" data-input>
+                <input class="text-field__input" type="text" name="email"
+                       placeholder="введите Email" autocomplete="off" value="test@mail.ru">
+                <span class="text-field__error"></span>
+            </label>
+
+            <label class="text-field" data-input>
+                <input class="text-field__input" type="password"
+                       name="password" placeholder="введите пароль"
+                       autocomplete="off" value="password">
+                <span class="text-field__error"></span>
+            </label>
+
+            <button class="button" type="submit">
+                Отправить
+            </button>
+        </form>
+    </div>
+</main>
+
+<script src="auth.js" type="module"></script>
+</body>
+</html>
