@@ -28,7 +28,6 @@ export class Auth {
             this.setUserInfo({}, true)
         }
 
-
         return data
     }
 

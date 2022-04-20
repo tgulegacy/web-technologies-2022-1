@@ -1,6 +1,6 @@
 import Form from "./components/form.js";
 import {Auth} from "./services/auth.js";
-import {Todos} from "./services/todos.js"
+import {Todos} from "./services/todos.js";
 
 if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', init)
