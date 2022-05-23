@@ -77,6 +77,10 @@ export class Auth {
         }
     }
 
+    async logout() {
+        localStorage.clear()
+    }
+    
     setToken(token) {
         localStorage.setItem('access-token', token)
     }

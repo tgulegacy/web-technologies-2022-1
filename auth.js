@@ -1,5 +1,6 @@
 import Form from "./components/form.js";
 import {Auth} from "./services/auth.js";
+import {Todos} from "./services/todo.js";
 
 if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', init)
@@ -8,6 +9,9 @@ if (document.readyState === 'loading') {
 }
 
 function init() {
+    new Todos().addTodo.then({
+        "description": "description41111234"
+    })
     new Form(
         document.getElementById('auth'),
         {
@@ -15,7 +19,7 @@ function init() {
                 if (!value) {
                     return 'Поле обязательно'
                 } else if (!value.toLowerCase().match(
-                    /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+                    /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
                 )) {
                     return 'Некорректный email'
                 }
@@ -46,5 +50,5 @@ function init() {
         }
     ).init()
 
-    new Auth().me()
+    new Auth().me.then()
 }
