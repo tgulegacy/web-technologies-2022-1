@@ -45,10 +45,12 @@ export class Todos {
             if(new Auth().getToken())
                 this.renderError('add-error')
         }
+        location.reload();
     }
 
     async deleteToDo(id) {
-        const result = await fetch(`http://localhost:5000/api/todo/${id}`, {
+        const currId = id.replace('td_','')
+        const result = await fetch(`http://localhost:5000/api/todo/${currId}`, {
             method: 'DELETE',
             headers: {
                 "Content-Type": "application/json",
@@ -57,18 +59,18 @@ export class Todos {
         })
 
         const resultData = await result.json();
-
+        console.log(`status ${resultData.ok}`);
         if(resultData.ok) {
-            document.getElementById(`todo${id}`).remove();
+            document.getElementById(`${id}`).remove();
         } else {
             this.renderError('delete-error')
         }
     }
 
     async changeCheckBox(id, checkbox) {
-        const completed = document.querySelector(`#todo${id} input`).checked;
-
-        const result = await fetch(`http://localhost:5000/api/todo/${id}`, {
+        const currId = id.replace('td_','')
+        const completed = document.querySelector(`#${id} input`);
+        const result = await fetch(`http://localhost:5000/api/todo/${currId}`, {
             method: 'PUT',
             body: JSON.stringify({completed: completed}),
             headers: {
@@ -77,10 +79,10 @@ export class Todos {
             },
         })
 
-        const data = await result.json();
-
-        if(data.ok) {
-            const todo = document.getElementById(`todo${id}`);
+        const resultData = await result.json();
+        console.log(resultData);
+        if(resultData.ok) {
+            const todo = document.getElementById(`${id}`);
             todo.classList.toggle('completed')
             checkbox.checked = !completed
         } else {
@@ -90,17 +92,14 @@ export class Todos {
 
     renderTodos(todos) {
         todos.forEach(todo => this.renderTodo(todo))
-        
-        this.initEventListener()
+        this.initEventListener().then()
     }
 
     renderTodo({id, description, completed}) {
         let className = completed ? 'completed' : 'uncompleted'
-
         const todos = document.querySelector('[data-user-todos]')
-
         todos.insertAdjacentHTML('beforeend', `
-            <div class="user-todo ${className}" id="todo${id}" data-todo-info>
+            <div class="user-todo ${className}" id="td_${id}" data-todo-info>
                 <input type="checkbox" ${completed && 'checked'} data-todo-checked/>
                 <span>${description}</span>
                 <button id="delete-todo${id}" data-delete>❌</button>
@@ -130,17 +129,16 @@ export class Todos {
         const todosButtons = document.querySelectorAll('[data-delete]');
 
         todosButtons.forEach(button => button.addEventListener('click', async (e) => {
-            const id = +e.path[0].id;
-
+            const id = e.path[1].id;
+            console.log(id);
             await this.deleteToDo(id);
         }))
 
         const todosCheckboxes = document.querySelectorAll('[data-todo-checked]');
 
         todosCheckboxes.forEach(checkbox => checkbox.addEventListener('change', async (e) => {
-            const id = +e.path[0].id;
-            checkbox.checked = !e.target.checked
-
+            const id = e.path[1].id;
+            checkbox.checked = e.target.checked
             await this.changeCheckBox(id, checkbox)
         }))
     }
