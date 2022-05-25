@@ -9,12 +9,12 @@
     <link href="style.css" rel="stylesheet">
 </head>
 <body>
+
 <header class="header">
     <nav class="nav">
         <a href="/auth.html">auth</a>
         <a href="/reg.html">reg</a>
         <a href="/todos.html">todos</a>
-        <a href="/auth.html">logout</a>
     </nav>
 </header>
 
@@ -29,28 +29,24 @@
         <div data-user-age>
         </div>
     </div>
-
-    <div class="todos" id="todo-list">
-        <div class="addTodo-form">
-            <form id="addTodo" class="form">
-                <label class="text-field" data-input>
-                    <input class="text-field__input" type="text" name="description"
-                           placeholder="введите дело" autocomplete="off">
-                    <span class="text-field__error"></span>
-                </label>
-
-                <button id="add-todo" class="button" type="submit">
-                    Создать
+    <div class="addToDo-form" style = "margin-left: 25%">
+        <form id="addToDo" class="form">
+            <label class="text-field" data-input>
+                <input class="text-field__input" type="text" name="description"
+                       placeholder="введите описание" autocomplete="off"
+                       value="">
+                <span class="text-field__error"></span>
+                <button class="button" type="submit">
+                    Отправить
                 </button>
-            </form>
-        </div>
-
-        <div class="user-todos" data-user-todos>
-
-        </div>
+            </label>
+        </form>
+        <div style = "margin-top: 20px" class="toDoList" id="toDo-List"></div>
     </div>
+
+
 </main>
 
-<script src="todos.js" type="module" defer></script>
+<script src="todos.js" type="module"></script>
 </body>
 </html>

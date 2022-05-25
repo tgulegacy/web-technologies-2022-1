@@ -1,19 +1,23 @@
-import Form from "./components/form.js";
 import {Auth} from '/services/auth.js'
-import {Todos} from "./services/todos.js";
+import Form from "./components/form.js";
 
 if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', init)
 } else {
-    init()
+    try {
+        init()
+    } catch (e) {
+        console.log(e)
+    }
 }
 
-async function init() {
+function init() {
+    new Auth().me()
     new Form(
-        document.getElementById('addTodo'),
+        document.getElementById('addToDo'),
         {
             'description': (value) => {
-                if (!value) {
+                if(!value) {
                     return 'заполните поле'
                 }
 
@@ -26,12 +30,11 @@ async function init() {
             fields.forEach(field => {
                 obj[field.name] = field.input.value
             })
-            console.log(obj)
-            if (obj)
-                await new Todos().addTodo(obj)
+            //console.log(obj)
+            await new Auth().addToDo(obj)
         }
     ).init()
+    new Auth().me();
+    new Auth().getAllToDos();
 
-    await new Auth().me();
-    await new Todos().getAllTodos();
 }
