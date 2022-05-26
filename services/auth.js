@@ -19,7 +19,7 @@ export class Auth {
             headers,
         })
         const data = await result.json()
-
+        console.log(data);
         if (data.ok) {
             const token = data.data.accessToken
             this.setToken(token)
@@ -77,6 +77,10 @@ export class Auth {
         }
     }
 
+    async logout() {
+        localStorage.clear()
+    }
+    
     setToken(token) {
         localStorage.setItem('access-token', token)
     }
