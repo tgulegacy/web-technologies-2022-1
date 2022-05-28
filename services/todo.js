@@ -69,10 +69,11 @@ export class Todos {
 
     async changeCheckBox(id, checkbox) {
         const currId = id.replace('td_','')
-        const completed = document.querySelector(`#${id} input`);
+        const currCheckBox = document.querySelector(`#${id} input`);
+        console.log(currCheckBox.checked);
         const result = await fetch(`http://localhost:5000/api/todo/${currId}`, {
             method: 'PUT',
-            body: JSON.stringify({completed: completed}),
+            body: JSON.stringify({completed: currCheckBox.checked}),
             headers: {
                 "Content-Type": "application/json",
                 "Authorization": `Bearer ${this.Auth.getToken()}`
@@ -83,8 +84,8 @@ export class Todos {
         console.log(resultData);
         if(resultData.ok) {
             const todo = document.getElementById(`${id}`);
-            todo.classList.toggle('completed')
-            checkbox.checked = !completed
+            todo.classList.toggle('completed');
+            checkbox.checked = !currCheckBox.checked;
         } else {
             this.renderError('completed-error')
         }
@@ -96,7 +97,7 @@ export class Todos {
     }
 
     renderTodo({id, description, completed}) {
-        let className = completed ? 'completed' : 'uncompleted'
+        const className = completed ? 'completed' : 'uncompleted';
         const todos = document.querySelector('[data-user-todos]')
         todos.insertAdjacentHTML('beforeend', `
             <div class="user-todo ${className}" id="td_${id}" data-todo-info>
